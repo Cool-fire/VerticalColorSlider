@@ -1,0 +1,2 @@
+include ':app', ':verticalcolorslider'
+rootProject.name='Colorslider'
