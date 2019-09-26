@@ -15,4 +15,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.asanam.verticalcolorslider.VerticalColorSlider
+        android:layout_width="50dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:borderColor="#ffff"
+        app:borderWidth="12dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

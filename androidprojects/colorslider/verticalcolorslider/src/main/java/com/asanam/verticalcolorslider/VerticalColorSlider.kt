@@ -12,8 +12,8 @@ import kotlin.math.min
 class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, attrs) {
     private lateinit var bitmap: Bitmap
     private var cacheBitmap: Boolean = true
-    private lateinit var path: Path
-    private val onColorChangeListener: OnColorChangeListener? = null
+    private val path: Path = Path()
+    private var onColorChangeListener: OnColorChangeListener? = null
     private var selectorYPos: Float = 0F
     private lateinit var colorPickerBody: RectF
     private var colorPickerRadius: Float = 0F
@@ -53,17 +53,17 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
 
     private fun initializeStrokePaint() {
         strokePaint = Paint().apply {
-            style = Paint.Style.FILL
+            style = Paint.Style.STROKE
+            color = borderColor
             isAntiAlias = true
+            strokeWidth = borderWidth
         }
     }
 
     private fun initializePaint() {
         paint = Paint().apply {
-            style = Paint.Style.STROKE
-            color = borderColor
+            style = Paint.Style.FILL
             isAntiAlias = true
-            strokeWidth = borderWidth
         }
     }
 
@@ -109,6 +109,7 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
             selectorYPos = ypos
             val selectedColor = bitmap.getPixel(viewWidth/2, selectorYPos.toInt())
             onColorChangeListener?.onColorChange(selectedColor)
+            performClick()
             invalidate()
 
         } catch (e:Exception) {
@@ -137,6 +138,10 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
     fun setBorderWidth(newWidth: Int) {
         borderColor = newWidth
         invalidate()
+    }
+
+    fun setOnColorChangeListener(onColorChangeListener: OnColorChangeListener) {
+        this.onColorChangeListener = onColorChangeListener
     }
 
     private fun reset() {
