@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -16,12 +17,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.asanam.verticalcolorslider.VerticalColorSlider
-        android:layout_width="50dp"
-        android:layout_height="200dp"
+        android:id="@+id/color_slider"
+        android:layout_width="20dp"
+        android:layout_height="500dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:borderColor="#ffff"
-        app:borderWidth="12dp" />
+        app:requireIndicator="false"
+        app:borderWidth="2dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

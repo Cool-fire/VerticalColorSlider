@@ -10,6 +10,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, attrs) {
+    private var requireIndicator: Boolean
     private lateinit var bitmap: Bitmap
     private var cacheBitmap: Boolean = true
     private val path: Path = Path()
@@ -37,6 +38,7 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
                 borderColor = this.getColor(R.styleable.VerticalColorSlider_borderColor, Color.WHITE)
                 borderWidth = this.getDimension(R.styleable.VerticalColorSlider_borderWidth, 10f)
                 colors = this.resources.getIntArray(this.getResourceId(R.styleable.VerticalColorSlider_colors, R.array.default_colors))
+                requireIndicator = this.getBoolean(R.styleable.VerticalColorSlider_requireIndicator, false)
             } finally {
                 this.recycle()
                 initialize()
@@ -98,8 +100,11 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
             bitmap = getDrawingCache()
             cacheBitmap = false
             invalidate()
-        } else {
-            canvas?.drawLine(colorPickerBody.left, selectorYPos, colorPickerBody.right, selectorYPos, strokePaint)
+        }
+        else {
+            if(requireIndicator) {
+                canvas?.drawLine(colorPickerBody.left, selectorYPos, colorPickerBody.right, selectorYPos, strokePaint)
+            }
         }
     }
 
@@ -137,6 +142,11 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
 
     fun setBorderWidth(newWidth: Int) {
         borderColor = newWidth
+        invalidate()
+    }
+
+    fun setIndicator(requireIndicator: Boolean = false) {
+        this.requireIndicator = requireIndicator
         invalidate()
     }
 

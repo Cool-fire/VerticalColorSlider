@@ -4,5 +4,6 @@
         <attr name="borderColor" format="color" />
         <attr name="borderWidth" format="dimension"/>
         <attr name="colors" format="reference" />
+        <attr name="requireIndicator" format="boolean"/>
     </declare-styleable>
 </resources>
