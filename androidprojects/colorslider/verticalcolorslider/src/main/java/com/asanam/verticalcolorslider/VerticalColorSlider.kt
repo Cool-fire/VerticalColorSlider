@@ -3,7 +3,11 @@ package com.asanam.verticalcolorslider
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
+import java.lang.Exception
+import kotlin.math.max
+import kotlin.math.min
 
 class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, attrs) {
     private lateinit var bitmap: Bitmap
@@ -98,7 +102,43 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
             canvas?.drawLine(colorPickerBody.left, selectorYPos, colorPickerBody.right, selectorYPos, strokePaint)
         }
     }
-    
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        try {
+            val ypos = max(colorPickerBody.top, min(event?.y!!, colorPickerBody.bottom))
+            selectorYPos = ypos
+            val selectedColor = bitmap.getPixel(viewWidth/2, selectorYPos.toInt())
+            onColorChangeListener?.onColorChange(selectedColor)
+            invalidate()
+
+        } catch (e:Exception) {
+            e.printStackTrace()
+        }
+
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
+        return true
+    }
+
+    fun setBorderColor(newColor:Int) {
+        borderColor = newColor
+        invalidate()
+    }
+
+    fun setColors(newColors : IntArray) {
+        colors = newColors
+        cacheBitmap = true
+        invalidate()
+    }
+
+    fun setBorderWidth(newWidth: Int) {
+        borderColor = newWidth
+        invalidate()
+    }
+
     private fun reset() {
         selectorYPos = borderWidth + colorPickerRadius
         onColorChangeListener?.onColorChange(Color.TRANSPARENT)
