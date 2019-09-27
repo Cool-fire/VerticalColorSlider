@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/Cool-fire/VerticalColorSlider.svg)](https://jitpack.io/#Cool-fire/VerticalColorSlider)
+
 # VerticalColorSlider
 
 ## VerticalColorSlider is a color-picker library where you can slide to pick an color in Android.
@@ -29,7 +31,7 @@ repo is stale and not accepting any PR's.
   ## 2. build.gradle (App)
 
      ```
-     implementaion 'com.asanam.colorslider:verticalcolorslider:1.0.0'
+     implementation 'com.github.Cool-fire:VerticalColorSlider:1.0.0'
      ```
   ```
 - In xml:
