@@ -35,7 +35,7 @@ repo is stale and not accepting any PR's.
      ```
      implementation 'com.github.Cool-fire:VerticalColorSlider:1.0.0'
      ```
-  ```
+
 - In xml:
 ```xml
 <com.asanam.verticalcolorslider.VerticalColorSlider
