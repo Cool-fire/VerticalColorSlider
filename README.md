@@ -5,6 +5,11 @@
 This is an Re-Implementation of [Vertical-color-slider-picker](https://github.com/veritas1/vertical-slide-color-picker) in kotlin, Since the original 
 repo is stale and not accepting any PR's.
 
+## Demo
+
+![Colorslider](https://user-images.githubusercontent.com/25877454/65792469-787d0200-e181-11e9-8f8c-04a7e58ad751.gif)
+
+
 ## Usage
 ### Quick start
 
