@@ -1,4 +1,6 @@
 [![](https://jitpack.io/v/Cool-fire/VerticalColorSlider.svg)](https://jitpack.io/#Cool-fire/VerticalColorSlider)
+[![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=plastic)](https://developer.android.com/studio/releases/platforms)
 
 # VerticalColorSlider
 
@@ -72,6 +74,13 @@ repo is stale and not accepting any PR's.
    | initialColor           | Initial color to be selected default to Black                               |
    | colors              | Array of colors in xml format                          |
   
+## Contributing
+
+Please fork this repository and contribute back using
+[pull requests](https://github.com/Cool-fire/VerticalColorSlide/pulls).
+
+Any contributions, large or small, major features, bug fixes, are welcomed and appreciated.
+
 
 ## All credit goes to
 
