@@ -10,6 +10,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, attrs) {
+    private var initialColor: Int
     private var requireIndicator: Boolean
     private lateinit var bitmap: Bitmap
     private var cacheBitmap: Boolean = true
@@ -32,13 +33,12 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
             attrs,
             R.styleable.VerticalColorSlider,
             0,0).apply {
-
-
             try {
                 borderColor = this.getColor(R.styleable.VerticalColorSlider_borderColor, Color.WHITE)
                 borderWidth = this.getDimension(R.styleable.VerticalColorSlider_borderWidth, 10f)
                 colors = this.resources.getIntArray(this.getResourceId(R.styleable.VerticalColorSlider_colors, R.array.default_colors))
                 requireIndicator = this.getBoolean(R.styleable.VerticalColorSlider_requireIndicator, false)
+                initialColor = this.getColor(R.styleable.VerticalColorSlider_initialColor, Color.WHITE)
             } finally {
                 this.recycle()
                 initialize()
@@ -150,13 +150,18 @@ class VerticalColorSlider(context:Context, attrs:AttributeSet) : View(context, a
         invalidate()
     }
 
+    fun setInitialColor(initialColor : Int) {
+        this.initialColor = initialColor
+        invalidate()
+    }
+
     fun setOnColorChangeListener(onColorChangeListener: OnColorChangeListener) {
         this.onColorChangeListener = onColorChangeListener
     }
 
     private fun reset() {
         selectorYPos = borderWidth + colorPickerRadius
-        onColorChangeListener?.onColorChange(Color.TRANSPARENT)
+        onColorChangeListener?.onColorChange(initialColor)
         invalidate()
     }
 

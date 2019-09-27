@@ -14,7 +14,8 @@ class MainActivity : AppCompatActivity() {
             override fun onColorChange(selectedColor: Int) {
                 text.setTextColor(selectedColor)
             }
-
         })
+        color_slider.setIndicator(false)
+        color_slider.setInitialColor(resources.getColor(R.color.colorAccent))
     }
 }
