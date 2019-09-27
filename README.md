@@ -77,7 +77,7 @@ repo is stale and not accepting any PR's.
 ## Contributing
 
 Please fork this repository and contribute back using
-[pull requests](https://github.com/Cool-fire/VerticalColorSlide/pulls).
+[pull requests](https://github.com/Cool-fire/VerticalColorSlider/pulls).
 
 Any contributions, large or small, major features, bug fixes, are welcomed and appreciated.
 
